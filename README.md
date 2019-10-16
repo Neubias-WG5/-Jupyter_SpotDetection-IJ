@@ -1,2 +1,2 @@
-# -Jupyter_SpotDetection-IJ
+# Jupyter_SpotDetection-IJ
 A jupyter-notebook version of the workflow
