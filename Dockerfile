@@ -54,6 +54,9 @@ ADD https://raw.githubusercontent.com/Neubias-WG5/W_SpotDetection-IJ/master/wrap
 # for running the wrapper locally
 ADD https://raw.githubusercontent.com/Neubias-WG5/W_SpotDetection-IJ/master/descriptor.json /app/descriptor.json
 
+# changing access rights to the app folder
+RUN chmod -R a+rx /app
+
 USER ${NB_USER}
 COPY . ${HOME}
 USER root
