@@ -58,6 +58,8 @@ ADD https://raw.githubusercontent.com/Neubias-WG5/W_SpotDetection-IJ/master/desc
 RUN chmod -R a+rx /app
 RUN chmod -R a+rw /fiji
 
+RUN pip install tifffile==0.15.1
+
 USER ${NB_USER}
 COPY . ${HOME}
 USER root
