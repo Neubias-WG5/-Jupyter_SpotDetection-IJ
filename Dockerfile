@@ -56,6 +56,7 @@ ADD https://raw.githubusercontent.com/Neubias-WG5/W_SpotDetection-IJ/master/desc
 
 # changing access rights to the app folder
 RUN chmod -R a+rx /app
+RUN chmod -R a+rw /fiji
 
 USER ${NB_USER}
 COPY . ${HOME}
