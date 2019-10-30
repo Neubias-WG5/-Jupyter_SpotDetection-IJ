@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install openjdk-8-jdk -y && apt-get clean
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Cytomine python client
 RUN cd / && git clone https://github.com/cytomine-uliege/Cytomine-python-client.git && \
-cd /Cytomine-python-client && git checkout tags/v2.2.0 && pip install . && rm -r /Cytomine-python-client
+    cd /Cytomine-python-client && git checkout tags/v2.3.0.poc.1 && pip install . && \
+    rm -r /Cytomine-python-client
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Fiji installation
@@ -32,7 +33,7 @@ RUN rm /fiji-linux64-20170530.zip
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Neubias-W5-Utilities (annotation exporter, compute metrics, helpers,...)
 RUN cd / && git clone https://github.com/Neubias-WG5/neubiaswg5-utilities.git && \
-       cd /neubiaswg5-utilities/ && git checkout tags/v0.6.0 && pip install .
+       cd /neubiaswg5-utilities/ && git checkout tags/v0.8.1 && pip install .
 
 # install utilities binaries
 RUN chmod +x /neubiaswg5-utilities/bin/*
@@ -57,8 +58,6 @@ ADD https://raw.githubusercontent.com/Neubias-WG5/W_SpotDetection-IJ/master/desc
 # changing access rights to the app folder
 RUN chmod -R a+rx /app
 RUN chmod -R a+rw /fiji
-
-RUN pip install tifffile==0.15.1
 
 USER ${NB_USER}
 COPY . ${HOME}
